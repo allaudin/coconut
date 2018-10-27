@@ -69,7 +69,7 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textSize="15sp"
-            app:cnt_error_message="Please enter digits only"
+            app:cnt_error_message="Please enter 7 digits only"
             app:cnt_error_text_size="12sp"
             app:cnt_validator="digits_only|length_7"
             app:layout_constraintEnd_toEndOf="parent"
