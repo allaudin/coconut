@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CoconutInputEditText">
+        <attr name="cnt_error_message" />
+        <attr name="cnt_validator" />
+        <attr name="cnt_optional" />
+    </declare-styleable>
+
+    <declare-styleable name="CoconutEditText">
+        <attr name="cnt_error_message" />
+        <attr name="cnt_validator" />
+        <attr name="cnt_optional" />
+    </declare-styleable>
+
+
+    <declare-styleable name="BaseErrorAwareEt">
+        <attr name="cnt_error_message" format="string" />
+        <attr name="cnt_validator" format="string" />
+        <attr name="cnt_optional" format="boolean" />
+        <attr name="cnt_error_text_color" format="color" />
+        <attr name="cnt_error_text_size" format="dimension" />
+    </declare-styleable>
+
+</resources>

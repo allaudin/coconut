@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="io.github.allaudin.demo.MainActivity">
+
+        <io.github.allaudin.coconut.widget.CoconutTextInputLayout
+            android:id="@+id/email_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <io.github.allaudin.coconut.widget.CoconutInputEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_email"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textSize="15sp"
+                app:cnt_error_message="@string/email_error"
+                app:cnt_validator="valid_email" />
+        </io.github.allaudin.coconut.widget.CoconutTextInputLayout>
+
+        <io.github.allaudin.coconut.widget.CoconutEditText
+            android:id="@+id/non_empty_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/enter_a_character"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:singleLine="true"
+            app:cnt_error_message="@string/atleast_one_character"
+            android:textSize="15sp"
+            app:cnt_validator="non_empty"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email_layout" />
+
+        <io.github.allaudin.coconut.widget.CoconutErrorAwareEt
+            android:id="@+id/at_least_seven"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:hint="@string/at_least_seven"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLines="1"
+            app:cnt_error_message="Please enter at least 7 chars"
+            android:singleLine="true"
+            android:textSize="15sp"
+            app:cnt_error_text_size="12sp"
+            app:cnt_validator="at_least_7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/non_empty_et" />
+
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="8dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/submit"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
