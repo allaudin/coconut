@@ -12,6 +12,7 @@ class CoconutValidationProvider private constructor() : ValidationProvider {
         validatorMap["non_empty"] = { isNonEmpty(it) }
         validatorMap["valid_email"] = { isValidEmail(it) }
         validatorMap["digits_only"] = { digitsOnly(it) }
+        validatorMap["letters_only"] = { lettersOnly(it) }
     }
 
     companion object Factory {
@@ -38,6 +39,9 @@ class CoconutValidationProvider private constructor() : ValidationProvider {
 
     private fun digitsOnly(input: String?) = isNonEmpty(input)
             && input!!.matches(Regex("\\d+"))
+
+    private fun lettersOnly(input: String?) = isNonEmpty(input)
+            && input!!.matches(Regex("\\pL+"))
 
 
 }
