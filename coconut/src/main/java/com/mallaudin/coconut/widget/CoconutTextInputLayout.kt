@@ -4,8 +4,6 @@ import android.content.Context
 import android.support.design.widget.TextInputLayout
 import android.util.AttributeSet
 
-
-
 /**
  * A parent wrapper for [CoconutTextInputLayout] responsible for
  * setting and removing error messages when validated via

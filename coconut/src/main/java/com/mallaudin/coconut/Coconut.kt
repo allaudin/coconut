@@ -5,14 +5,18 @@ import com.mallaudin.coconut.validation.ValidationProvider
 import com.mallaudin.coconut.validation.ValidatorNotFound
 import com.mallaudin.coconut.widget.CoconutView
 
-class Coconut private constructor(val provider: ValidationProvider) {
+class Coconut private constructor(val provider: ValidationProvider,
+                                  private val debug: Boolean = false,
+                                  private val logger: Logger? = null) {
+
 
     companion object {
+
         private var instance: Coconut? = null
 
-        fun init(provider: ValidationProvider) {
+        fun init(provider: ValidationProvider, debug: Boolean = false, logger: Logger? = null) {
             if (instance == null) {
-                instance = Coconut(provider.init())
+                instance = Coconut(provider.init(), debug, logger)
             }
         }
 
@@ -62,7 +66,15 @@ class Coconut private constructor(val provider: ValidationProvider) {
                                 "Have you misspelled validator key in layout?")
 
 
-                if (!validator.invoke(input)) {
+                val result = validator.invoke(input)
+
+                log("\n\nValidating...\n" +
+                        "input = $input\n" +
+                        "errorMessage = $errorMessage\n" +
+                        "validator = $key\n" +
+                        "isValid = $result")
+
+                if (!result) {
                     areFieldsValid = false
                     view.setErrorMessage(errorMessage ?: "")
                 }
@@ -107,4 +119,10 @@ class Coconut private constructor(val provider: ValidationProvider) {
         }
 
     } // getViews
+
+    private fun log(msg: String?) {
+        if (debug) {
+            logger?.log(msg)
+        }
+    }
 }

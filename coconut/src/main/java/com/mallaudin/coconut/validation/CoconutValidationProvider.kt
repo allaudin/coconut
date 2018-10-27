@@ -5,7 +5,7 @@ import java.util.regex.Pattern
 open class CoconutValidationProvider : BaseValidationProvider() {
 
     override fun addValidators(): MutableMap<String, Validator> {
-        val validators: MutableMap<String, Validator> = HashMap()
+        val validators = HashMap<String, Validator>()
         validators["non_empty"] = { isNonEmpty(it) }
         validators["valid_email"] = { isValidEmail(it) }
         validators["digits_only"] = { digitsOnly(it) }

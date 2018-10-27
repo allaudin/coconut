@@ -1,7 +1,5 @@
 package com.mallaudin.coconut.validation
 
-import java.lang.IllegalStateException
-
 
 abstract class BaseValidationProvider : ValidationProvider {
 
@@ -19,12 +17,12 @@ abstract class BaseValidationProvider : ValidationProvider {
 
 
     final override fun getByKey(key: String): Validator {
-        if(!isInitialized){
+        if (!isInitialized) {
             throw IllegalStateException("ValidationProvider.getByKey(String) " +
                     "is called on uninitialized ValidationProvider")
         }
-       return validatorMap[key]
+        return validatorMap[key]
     }
 
-    abstract fun addValidators(): MutableMap<String, ((input: String?) -> Boolean)?>
+    abstract fun addValidators(): MutableMap<String, Validator>
 }

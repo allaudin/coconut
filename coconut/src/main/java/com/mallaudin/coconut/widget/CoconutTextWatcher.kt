@@ -3,7 +3,6 @@ package com.mallaudin.coconut.widget
 import android.text.Editable
 import android.text.TextWatcher
 
-
 /**
  * Text watcher for removing errors form [CoconutView] after
  * text is changed.
