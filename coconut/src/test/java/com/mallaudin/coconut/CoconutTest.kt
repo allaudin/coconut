@@ -2,8 +2,8 @@ package com.mallaudin.coconut
 
 
 import com.mallaudin.coconut.validation.ValidationProvider
-import com.mallaudin.coconut.validation.ValidatorNotFound
 import com.mallaudin.coconut.validation.Validator
+import com.mallaudin.coconut.validation.ValidatorNotFound
 import com.mallaudin.coconut.widget.CoconutView
 import com.mallaudin.coconut.widget.Input
 import org.junit.After
@@ -112,11 +112,11 @@ class CoconutTest {
     }
 
     @Test
-    fun doublePipe_And_Empty_Start_Last_Spaces_Are_Removed(){
+    fun doublePipe_And_Empty_Start_Last_Spaces_Are_Removed() {
         `when`(input.validatorKey).thenReturn("    a||b||c")
         `when`(coconutView.input).thenReturn(input)
         `when`(validationProvider.getByKey(anyString())).thenReturn(validator)
-        `when`(validator?.invoke(Matchers.anyString())).thenReturn(true)
+        `when`(validator?.invoke(anyString())).thenReturn(true)
         coconut.areFieldsValid(coconutView)
         verify(validationProvider, times(3))
                 .getByKey(anyString())
@@ -171,6 +171,21 @@ class CoconutTest {
         val provider = Mockito.mock(ValidationProvider::class.java)
         Coconut.init(provider)
         verify(provider, times(1)).init()
+    }
+
+    @Test
+    fun logs_Are_Disabled_For_Debug_False() {
+        Coconut.destroy()
+        val logger = mock(Logger::class.java)
+        Coconut.init(validationProvider, false, logger)
+        coconut = Coconut.get()
+        `when`(input.errorMessage).thenReturn(null)
+        `when`(input.value).thenReturn("")
+        `when`(coconutView.input).thenReturn(input)
+        `when`(input.validatorKey).thenReturn(VALIDATOR_KEY)
+        `when`(validator?.invoke("")).thenReturn(false)
+        coconut.areFieldsValid(coconutView)
+        verify(logger, times(0)).log(anyString())
     }
 
     companion object {

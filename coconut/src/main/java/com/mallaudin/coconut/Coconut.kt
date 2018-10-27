@@ -124,8 +124,7 @@ class Coconut private constructor(val provider: ValidationProvider,
                     "Validator = $key\n" +
                     "IsValid = $isValid\n"
             logger?.log(msg)
-
-
         }
     }
+
 }
