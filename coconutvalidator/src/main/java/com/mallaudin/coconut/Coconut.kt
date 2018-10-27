@@ -59,7 +59,8 @@ class Coconut private constructor(val provider: ValidationProvider) {
 
 
             val validator = provider.getByKey(validatorKey)
-                    ?: throw ValidatorNotFound("No validator found with key: $validatorKey")
+                    ?: throw ValidatorNotFound("No validator found with key: $validatorKey. " +
+                            "Have you misspelled validator key in layout?")
 
 
             if (!validator.invoke(input)) {
