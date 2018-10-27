@@ -5,7 +5,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Test
 
-class DefaultValidationProviderTest {
+class CoconutValidationProviderTest {
 
 
     private val provider: CoconutValidationProvider = CoconutValidationProvider.get()
