@@ -11,8 +11,11 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.*
+import org.mockito.Matchers
+import org.mockito.Mock
+import org.mockito.Mockito
 import org.mockito.Mockito.*
+import org.mockito.MockitoAnnotations
 import org.mockito.runners.MockitoJUnitRunner
 
 /**
@@ -91,7 +94,7 @@ class CoconutTest {
     @Test
     fun multiple_Validators_Are_Applied_For_Piped_Key() {
 
-        `when`(input.validatorKey).thenReturn("a||b|c")
+        `when`(input.validatorKey).thenReturn("a|b|c")
         `when`(coconutView.input).thenReturn(input)
         `when`(validationProvider.getByKey(anyString())).thenReturn(validator)
         `when`(validator?.invoke(Matchers.anyString())).thenReturn(true)
@@ -99,6 +102,8 @@ class CoconutTest {
 
         verify(validationProvider, times(3))
                 .getByKey(anyString())
+        verify(validator, times(3))
+                ?.invoke(Matchers.anyString())
 
         verify(validationProvider).getByKey("a")
         verify(validationProvider).getByKey("b")
