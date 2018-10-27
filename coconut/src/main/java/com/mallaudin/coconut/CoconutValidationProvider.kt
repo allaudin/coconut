@@ -5,12 +5,12 @@ import java.util.regex.Pattern
 class CoconutValidationProvider : BaseValidationProvider() {
 
     override fun addValidators(): Map<String, (input: String?) -> Boolean> {
-        val validatorMap: MutableMap<String, (input: String?) -> Boolean> = HashMap()
-        validatorMap["non_empty"] = { isNonEmpty(it) }
-        validatorMap["valid_email"] = { isValidEmail(it) }
-        validatorMap["digits_only"] = { digitsOnly(it) }
-        validatorMap["letters_only"] = { lettersOnly(it) }
-        return validatorMap;
+        val validators: MutableMap<String, (input: String?) -> Boolean> = HashMap()
+        validators["non_empty"] = { isNonEmpty(it) }
+        validators["valid_email"] = { isValidEmail(it) }
+        validators["digits_only"] = { digitsOnly(it) }
+        validators["letters_only"] = { lettersOnly(it) }
+        return validators
     }
 
     private fun isNonEmpty(input: String?) =
