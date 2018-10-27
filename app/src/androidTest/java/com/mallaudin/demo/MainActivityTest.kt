@@ -28,7 +28,7 @@ class MainActivityTest {
         onView(withId(R.id.non_empty_et))
                 .check(editTextErrorHidden())
 
-        onView(withId(R.id.at_least_seven))
+        onView(withId(R.id.digits_only))
                 .check(errorAwareEditTextErrorHidden())
 
     }
@@ -44,7 +44,7 @@ class MainActivityTest {
         onView(withId(R.id.non_empty_et))
                 .check(editTextCorrectErrorDisplayed())
 
-        onView(withId(R.id.at_least_seven))
+        onView(withId(R.id.digits_only))
                 .check(errorAwareEditTextCorrectErrorDisplayed())
     }
 
@@ -61,7 +61,7 @@ class MainActivityTest {
                 .perform(typeText("  "),
                         closeSoftKeyboard())
 
-        onView(withHint(R.string.at_least_seven))
+        onView(withHint(R.string.enter_digits_only))
                 .perform(typeText("123"),
                         closeSoftKeyboard())
 
@@ -70,7 +70,7 @@ class MainActivityTest {
 
         onView(withId(R.id.non_empty_et)).check(editTextErrorHidden())
 
-        onView(withId(R.id.at_least_seven)).check(errorAwareEditTextErrorHidden())
+        onView(withId(R.id.digits_only)).check(errorAwareEditTextErrorHidden())
     }
 
     @Test
@@ -85,7 +85,7 @@ class MainActivityTest {
                         closeSoftKeyboard())
 
 
-        onView(ViewMatchers.withHint(R.string.at_least_seven))
+        onView(ViewMatchers.withHint(R.string.enter_digits_only))
                 .perform(typeText("1234567"),
                         closeSoftKeyboard())
 
@@ -95,7 +95,7 @@ class MainActivityTest {
 
         onView(withId(R.id.non_empty_et)).check(editTextErrorHidden())
 
-        onView(withId(R.id.at_least_seven)).check(errorAwareEditTextErrorHidden())
+        onView(withId(R.id.digits_only)).check(errorAwareEditTextErrorHidden())
     }
 
 

@@ -11,7 +11,7 @@ class CoconutValidationProvider private constructor() : ValidationProvider {
     init {
         validatorMap["non_empty"] = { isNonEmpty(it) }
         validatorMap["valid_email"] = { isValidEmail(it) }
-        validatorMap["at_least_7"] = { atLeastSeven(it) }
+        validatorMap["digits_only"] = { digitsOnly(it) }
     }
 
     companion object Factory {
@@ -36,7 +36,8 @@ class CoconutValidationProvider private constructor() : ValidationProvider {
         return isNonEmpty(input) && pattern.matcher(input).matches()
     }
 
-    private fun atLeastSeven(input: String?) = isNonEmpty(input) && input!!.length >= 7
+    private fun digitsOnly(input: String?) = isNonEmpty(input)
+            && input!!.matches(Regex("\\d+"))
 
 
 }

@@ -36,4 +36,18 @@ class DefaultValidationProviderTest {
         }
 
     }
+
+    @Test
+    fun test_Digits_Only() {
+        val emailValidator = provider.getByKey("digits_only")
+        assertNotNull(emailValidator)
+        emailValidator?.let { validate ->
+            val invalidInputs = validate(null)
+                    || validate("") || validate("foo")
+
+            assertEquals(false, invalidInputs)
+            assertEquals(true, validate("123456"))
+        }
+
+    }
 }

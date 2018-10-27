@@ -11,6 +11,6 @@
     <string name="all_ok">All OK.</string>
     <string name="phone_number_format">Enter Phone Number (xxx-xxx-xxxx)</string>
     <string name="enter_a_character">Enter a character</string>
-    <string name="atleast_one_character">Please enter at least one character</string>
-    <string name="at_least_seven">Enter at  leat 7 characters</string>
+    <string name="at_least_one_char">Please enter at least one character</string>
+    <string name="enter_digits_only">Enter digits only</string>
 </resources>
