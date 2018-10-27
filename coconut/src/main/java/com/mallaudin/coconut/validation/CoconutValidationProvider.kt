@@ -2,10 +2,10 @@ package com.mallaudin.coconut.validation
 
 import java.util.regex.Pattern
 
-class CoconutValidationProvider : BaseValidationProvider() {
+open class CoconutValidationProvider : BaseValidationProvider() {
 
-    override fun addValidators(): Map<String, (input: String?) -> Boolean> {
-        val validators: MutableMap<String, (input: String?) -> Boolean> = HashMap()
+    override fun addValidators(): MutableMap<String, Validator> {
+        val validators: MutableMap<String, Validator> = HashMap()
         validators["non_empty"] = { isNonEmpty(it) }
         validators["valid_email"] = { isValidEmail(it) }
         validators["digits_only"] = { digitsOnly(it) }

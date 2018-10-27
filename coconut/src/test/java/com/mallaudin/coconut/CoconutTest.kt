@@ -3,6 +3,7 @@ package com.mallaudin.coconut
 
 import com.mallaudin.coconut.validation.ValidationProvider
 import com.mallaudin.coconut.validation.ValidatorNotFound
+import com.mallaudin.coconut.validation.Validator
 import com.mallaudin.coconut.widget.CoconutView
 import com.mallaudin.coconut.widget.Input
 import org.junit.After
@@ -38,7 +39,7 @@ class CoconutTest {
     private lateinit var validationProvider: ValidationProvider
 
     @Mock
-    private var validator: ((input: String?) -> Boolean)? = null
+    private var validator: Validator = null
 
 
     @Before
@@ -108,6 +109,19 @@ class CoconutTest {
         verify(validationProvider).getByKey("a")
         verify(validationProvider).getByKey("b")
         verify(validationProvider).getByKey("c")
+    }
+
+    @Test
+    fun doublePipe_And_Empty_Start_Last_Spaces_Are_Removed(){
+        `when`(input.validatorKey).thenReturn("    a||b||c")
+        `when`(coconutView.input).thenReturn(input)
+        `when`(validationProvider.getByKey(anyString())).thenReturn(validator)
+        `when`(validator?.invoke(Matchers.anyString())).thenReturn(true)
+        coconut.areFieldsValid(coconutView)
+        verify(validationProvider, times(3))
+                .getByKey(anyString())
+        verify(validator, times(3))
+                ?.invoke(Matchers.anyString())
     }
 
     @Test
