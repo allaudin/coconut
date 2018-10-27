@@ -1,4 +1,4 @@
-package com.mallaudin.coconut
+package com.mallaudin.coconut.validation
 
 import java.util.regex.Pattern
 

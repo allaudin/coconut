@@ -1,10 +1,10 @@
 package com.mallaudin.coconut
 
 
-import com.mallaudin.coconut.widget.ValidationProvider
+import com.mallaudin.coconut.validation.CoconutValidationProvider
+import com.mallaudin.coconut.validation.ValidationProvider
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
-import org.junit.Before
 import org.junit.Test
 
 class CoconutValidationProviderTest {

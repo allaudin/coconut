@@ -1,3 +1,3 @@
-package com.mallaudin.coconut.widget
+package com.mallaudin.coconut.validation
 
 class ValidatorNotFound(message: String) : RuntimeException(message)

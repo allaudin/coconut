@@ -1,4 +1,4 @@
-package com.mallaudin.coconut.widget
+package com.mallaudin.coconut.validation
 
 interface ValidationProvider {
 

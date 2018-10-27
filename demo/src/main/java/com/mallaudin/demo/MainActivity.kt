@@ -4,8 +4,7 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.mallaudin.coconut.Coconut
-import com.mallaudin.coconut.BaseValidationProvider
-import com.mallaudin.coconut.CoconutValidationProvider
+import com.mallaudin.coconut.validation.CoconutValidationProvider
 import com.mallaudin.demo.databinding.ActivityMainBinding
 
 

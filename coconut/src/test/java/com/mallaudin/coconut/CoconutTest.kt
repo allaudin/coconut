@@ -3,8 +3,8 @@ package com.mallaudin.coconut
 
 import com.mallaudin.coconut.widget.CoconutView
 import com.mallaudin.coconut.widget.Input
-import com.mallaudin.coconut.widget.ValidationProvider
-import com.mallaudin.coconut.widget.ValidatorNotFound
+import com.mallaudin.coconut.validation.ValidationProvider
+import com.mallaudin.coconut.validation.ValidatorNotFound
 import org.junit.After
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue

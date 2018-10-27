@@ -1,7 +1,5 @@
-package com.mallaudin.coconut
+package com.mallaudin.coconut.validation
 
-
-import com.mallaudin.coconut.widget.ValidationProvider
 
 abstract class BaseValidationProvider : ValidationProvider {
 
