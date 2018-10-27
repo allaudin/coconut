@@ -1,4 +1,4 @@
-package io.github.allaudin.coconut.widget
+package com.mallaudin.coconut.widget
 
 import android.content.Context
 import android.graphics.Color
@@ -11,7 +11,8 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
-import io.github.allaudin.coconut.R
+import io.com.mallaudin.coconut.R
+
 
 
 abstract class BaseErrorAwareEt : LinearLayout, Input, CoconutView {

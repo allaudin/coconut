@@ -1,9 +1,10 @@
-package io.github.allaudin.coconut.widget
+package com.mallaudin.coconut.widget
 
 import android.content.Context
 import android.support.design.widget.TextInputEditText
 import android.util.AttributeSet
-import io.github.allaudin.coconut.R
+import io.com.mallaudin.coconut.R
+
 
 
 /**

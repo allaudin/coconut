@@ -1,13 +1,14 @@
-package io.github.allaudin
+package io.com.mallaudin
 
 import android.support.design.widget.TextInputLayout
 import android.support.test.espresso.NoMatchingViewException
 import android.support.test.espresso.ViewAssertion
 import android.view.View
 import android.widget.EditText
-import io.github.allaudin.coconut.widget.CoconutErrorAwareEt
-import io.github.allaudin.coconut.widget.CoconutView
+import io.com.mallaudin.coconut.widget.CoconutErrorAwareEt
+import io.com.mallaudin.coconut.widget.CoconutView
 import org.junit.Assert.*
+import kotlin.jvm.java
 
 
 fun editTextErrorHidden(): ViewAssertion {

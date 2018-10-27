@@ -1,4 +1,5 @@
-package io.github.allaudin.coconut.widget
+package com.mallaudin.coconut.widget
+
 
 /**
  * An input field which collects data from the user and
@@ -6,7 +7,7 @@ package io.github.allaudin.coconut.widget
  *
  *
  * It must be wrapper in [CoconutView] in order to work with
- * [io.github.allaudin.coconut.Coconut]
+ * [com.mallaudin.coconut.Coconut]
  *
  * @author Muhammad Allaudin
  * Created on 2018-03-24.

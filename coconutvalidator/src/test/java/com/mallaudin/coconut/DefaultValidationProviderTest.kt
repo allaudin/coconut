@@ -1,4 +1,5 @@
-package io.github.allaudin.coconut
+package com.mallaudin.coconut
+
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull

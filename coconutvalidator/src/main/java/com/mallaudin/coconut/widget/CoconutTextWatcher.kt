@@ -1,4 +1,4 @@
-package io.github.allaudin.coconut.widget
+package com.mallaudin.coconut.widget
 
 import android.text.Editable
 import android.text.TextWatcher

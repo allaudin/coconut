@@ -7,9 +7,9 @@
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="io.github.allaudin.demo.MainActivity">
+        tools:context="com.mallaudin.demo.MainActivity">
 
-        <io.github.allaudin.coconut.widget.CoconutTextInputLayout
+        <com.mallaudin.coconut.widget.CoconutTextInputLayout
             android:id="@+id/email_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <io.github.allaudin.coconut.widget.CoconutInputEditText
+            <com.mallaudin.coconut.widget.CoconutInputEditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,9 +32,9 @@
                 android:textSize="15sp"
                 app:cnt_error_message="@string/email_error"
                 app:cnt_validator="valid_email" />
-        </io.github.allaudin.coconut.widget.CoconutTextInputLayout>
+        </com.mallaudin.coconut.widget.CoconutTextInputLayout>
 
-        <io.github.allaudin.coconut.widget.CoconutEditText
+        <com.mallaudin.coconut.widget.CoconutEditText
             android:id="@+id/non_empty_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/email_layout" />
 
-        <io.github.allaudin.coconut.widget.CoconutErrorAwareEt
+        <com.mallaudin.coconut.widget.CoconutErrorAwareEt
             android:id="@+id/at_least_seven"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

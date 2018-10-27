@@ -1,6 +1,7 @@
-package io.github.allaudin.coconut
+package com.mallaudin.coconut
 
-import io.github.allaudin.coconut.widget.ValidationProvider
+
+import com.mallaudin.coconut.widget.ValidationProvider
 import java.util.regex.Pattern
 
 class CoconutValidationProvider private constructor() : ValidationProvider {

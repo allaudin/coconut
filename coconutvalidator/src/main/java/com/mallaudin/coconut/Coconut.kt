@@ -1,9 +1,10 @@
-package io.github.allaudin.coconut
+package com.mallaudin.coconut
 
 import android.view.ViewGroup
-import io.github.allaudin.coconut.widget.CoconutView
-import io.github.allaudin.coconut.widget.ValidationProvider
-import io.github.allaudin.coconut.widget.ValidatorNotFound
+import com.mallaudin.coconut.widget.CoconutView
+import com.mallaudin.coconut.widget.ValidationProvider
+import com.mallaudin.coconut.widget.ValidatorNotFound
+
 import java.util.*
 
 class Coconut private constructor(val provider: ValidationProvider) {

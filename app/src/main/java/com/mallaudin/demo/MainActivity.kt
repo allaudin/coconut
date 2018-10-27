@@ -1,11 +1,12 @@
-package io.github.allaudin.demo
+package com.mallaudin.demo
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import io.github.allaudin.coconut.Coconut
-import io.github.allaudin.coconut.CoconutValidationProvider
-import io.github.allaudin.demo.databinding.ActivityMainBinding
+import com.mallaudin.coconut.Coconut
+import com.mallaudin.coconut.CoconutValidationProvider
+import com.mallaudin.demo.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,8 +17,9 @@ class MainActivity : AppCompatActivity() {
 
         // initialize in App (preferably)
         Coconut.init(CoconutValidationProvider.get())
-
-        binding.submit.setOnClickListener { v -> Coconut.get().validateLayoutFields(binding.content) }
+        binding.submit.setOnClickListener {
+            Coconut.get().validateLayoutFields(binding.content)
+        }
 
     } // onCreate
 }

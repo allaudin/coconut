@@ -1,18 +1,19 @@
-package io.github.allaudin.coconut.widget
+package com.mallaudin.coconut.widget
 
 import android.content.Context
 import android.support.design.widget.TextInputLayout
 import android.util.AttributeSet
 
 
+
 /**
  * A parent wrapper for [CoconutTextInputLayout] responsible for
  * setting and removing error messages when validated via
- * [io.github.allaudin.coconut.Coconut]
+ * [com.mallaudin.coconut.Coconut]
  *
  * @author Muhammad Allaudin
  * Created on 2018-03-24.
- * @see io.github.allaudin.coconut.Coconut.areFieldsValid
+ * @see com.mallaudin.coconut.Coconut.areFieldsValid
  */
 
 class CoconutTextInputLayout : TextInputLayout, CoconutView {

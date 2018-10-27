@@ -1,15 +1,14 @@
-package io.github.allaudin.coconut.widget
+package com.mallaudin.coconut.widget
 
-import android.content.Context
+
 import android.support.v7.widget.AppCompatEditText
-import android.util.AttributeSet
-import io.github.allaudin.coconut.R
+
 
 
 /**
  * An error aware edit text which contains validation regex for validating it's
  * input data and error message to be displayed when an incorrect data is detected
- * via [io.github.allaudin.coconut.Coconut]
+ * via [com.mallaudin.coconut.Coconut]
  *
  * @author Muhammad Allaudin
  * Created on 2018-03-24.

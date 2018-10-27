@@ -1,4 +1,5 @@
-package io.github.allaudin.coconut.widget
+package com.mallaudin.coconut.widget
+
 
 /**
  * An error aware view. The [Input] returned by

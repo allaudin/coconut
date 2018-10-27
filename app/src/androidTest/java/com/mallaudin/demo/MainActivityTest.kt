@@ -1,4 +1,4 @@
-package io.github.allaudin
+package com.mallaudin.demo
 
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.*
@@ -8,8 +8,7 @@ import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.filters.LargeTest
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
-import io.github.allaudin.demo.MainActivity
-import io.github.allaudin.demo.R
+import io.com.mallaudin.*
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
