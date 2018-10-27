@@ -2,9 +2,9 @@ package com.mallaudin.coconut
 
 
 import com.mallaudin.coconut.widget.CoconutView
+import com.mallaudin.coconut.widget.Input
 import com.mallaudin.coconut.widget.ValidationProvider
 import com.mallaudin.coconut.widget.ValidatorNotFound
-import io.com.mallaudin.coconut.widget.Input
 import org.junit.After
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue

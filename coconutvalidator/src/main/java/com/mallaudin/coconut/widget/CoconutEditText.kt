@@ -1,8 +1,10 @@
 package com.mallaudin.coconut.widget
 
 
+import android.content.Context
 import android.support.v7.widget.AppCompatEditText
-
+import android.util.AttributeSet
+import io.com.mallaudin.coconut.R
 
 
 /**

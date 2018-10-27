@@ -26,7 +26,7 @@ ext {
     version = '2.0.0'
     repo = 'android'
     user = 'mallaudin'
-    groupId = "io.github.allaudin"
+    groupId = "com.mallaudin"
     licenses = ['Apache-2.0']
     publish = false
     override = true

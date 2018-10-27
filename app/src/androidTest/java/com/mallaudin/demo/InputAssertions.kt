@@ -1,12 +1,13 @@
-package io.com.mallaudin
+package com.mallaudin.demo
 
 import android.support.design.widget.TextInputLayout
 import android.support.test.espresso.NoMatchingViewException
 import android.support.test.espresso.ViewAssertion
 import android.view.View
 import android.widget.EditText
-import io.com.mallaudin.coconut.widget.CoconutErrorAwareEt
-import io.com.mallaudin.coconut.widget.CoconutView
+import com.mallaudin.coconut.widget.CoconutErrorAwareEt
+import com.mallaudin.coconut.widget.CoconutView
+
 import org.junit.Assert.*
 import kotlin.jvm.java
 
