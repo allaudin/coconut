@@ -12,6 +12,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
+import org.mockito.Mockito
 import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
 import org.mockito.runners.MockitoJUnitRunner
@@ -22,7 +23,7 @@ import org.mockito.runners.MockitoJUnitRunner
  */
 
 @RunWith(MockitoJUnitRunner::class)
-class CoconutValidatorTest {
+class CoconutTest {
 
     private lateinit var coconut: Coconut
 
@@ -42,10 +43,14 @@ class CoconutValidatorTest {
     @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
-        Coconut.init(validationProvider)
-        coconut = Coconut.get()
+
         `when`(validationProvider.getByKey(VALIDATOR_KEY))
                 .thenReturn(validator)
+        `when`(validationProvider.init())
+                .thenReturn(validationProvider)
+
+        Coconut.init(validationProvider)
+        coconut = Coconut.get()
     }
 
     @After
@@ -67,6 +72,7 @@ class CoconutValidatorTest {
         `when`(input.validatorKey).thenReturn("")
         coconut.areFieldsValid(coconutView)
     }
+
 
     @Test
     fun field_Is_Valid_For_Optional_Or_Null_InputViews() {
@@ -125,6 +131,13 @@ class CoconutValidatorTest {
         verify(coconutView, times(1)).setErrorMessage("")
     }
 
+    @Test
+    fun verify_Provider_Is_Initialized_On_Coconut_Init() {
+        Coconut.destroy()
+        val provider = Mockito.mock(ValidationProvider::class.java)
+        Coconut.init(provider)
+        verify(provider, times(1)).init()
+    }
 
     companion object {
         private const val VALIDATOR_KEY = "foo_bar"

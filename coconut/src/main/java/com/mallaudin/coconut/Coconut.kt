@@ -14,7 +14,7 @@ class Coconut private constructor(val provider: ValidationProvider) {
 
         fun init(provider: ValidationProvider) {
             if (instance == null) {
-                instance = Coconut(provider)
+                instance = Coconut(provider.init())
             }
         }
 

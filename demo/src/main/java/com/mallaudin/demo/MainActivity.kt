@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.mallaudin.coconut.Coconut
+import com.mallaudin.coconut.BaseValidationProvider
 import com.mallaudin.coconut.CoconutValidationProvider
 import com.mallaudin.demo.databinding.ActivityMainBinding
 
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
                 DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         // initialize in App (preferably)
-        Coconut.init(CoconutValidationProvider.get())
+        Coconut.init(CoconutValidationProvider())
         binding.submit.setOnClickListener {
             Coconut.get().validateLayoutFields(binding.content)
         }

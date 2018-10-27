@@ -1,25 +1,17 @@
 package com.mallaudin.coconut
 
-
-import com.mallaudin.coconut.widget.ValidationProvider
 import java.util.regex.Pattern
 
-class CoconutValidationProvider private constructor() : ValidationProvider {
+class CoconutValidationProvider : BaseValidationProvider() {
 
-    private var validatorMap: MutableMap<String, (input: String?) -> Boolean> = HashMap()
-
-    init {
+    override fun addValidators(): Map<String, (input: String?) -> Boolean> {
+        val validatorMap: MutableMap<String, (input: String?) -> Boolean> = HashMap()
         validatorMap["non_empty"] = { isNonEmpty(it) }
         validatorMap["valid_email"] = { isValidEmail(it) }
         validatorMap["digits_only"] = { digitsOnly(it) }
         validatorMap["letters_only"] = { lettersOnly(it) }
+        return validatorMap;
     }
-
-    companion object Factory {
-        fun get() = CoconutValidationProvider()
-    }
-
-    override fun getByKey(key: String) = validatorMap[key]
 
     private fun isNonEmpty(input: String?) =
             input != null && !input.trim { it <= ' ' }.isEmpty()
@@ -42,6 +34,4 @@ class CoconutValidationProvider private constructor() : ValidationProvider {
 
     private fun lettersOnly(input: String?) = isNonEmpty(input)
             && input!!.matches(Regex("\\pL+"))
-
-
 }

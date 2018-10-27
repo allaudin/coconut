@@ -1,14 +1,16 @@
 package com.mallaudin.coconut
 
 
+import com.mallaudin.coconut.widget.ValidationProvider
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
+import org.junit.Before
 import org.junit.Test
 
 class CoconutValidationProviderTest {
 
 
-    private val provider: CoconutValidationProvider = CoconutValidationProvider.get()
+    private val provider: ValidationProvider = CoconutValidationProvider().init()
 
     @Test
     fun test_Non_Empty_Validator() {
@@ -58,7 +60,7 @@ class CoconutValidationProviderTest {
         lettersOnly?.let { validate ->
             val invalidInputs = validate(null)
                     || validate("") || validate("123")
-            || validate("!@#$%&^())*")
+                    || validate("!@#$%&^())*")
 
             assertEquals(false, invalidInputs)
             assertEquals(true, validate("abc"))
