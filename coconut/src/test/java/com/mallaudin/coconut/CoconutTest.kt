@@ -1,20 +1,18 @@
 package com.mallaudin.coconut
 
 
-import com.mallaudin.coconut.widget.CoconutView
-import com.mallaudin.coconut.widget.Input
 import com.mallaudin.coconut.validation.ValidationProvider
 import com.mallaudin.coconut.validation.ValidatorNotFound
+import com.mallaudin.coconut.widget.CoconutView
+import com.mallaudin.coconut.widget.Input
 import org.junit.After
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.Mockito
+import org.mockito.*
 import org.mockito.Mockito.*
-import org.mockito.MockitoAnnotations
 import org.mockito.runners.MockitoJUnitRunner
 
 /**
@@ -89,6 +87,23 @@ class CoconutTest {
                 .isOptional
     }
 
+
+    @Test
+    fun multiple_Validators_Are_Applied_For_Piped_Key() {
+
+        `when`(input.validatorKey).thenReturn("a||b|c")
+        `when`(coconutView.input).thenReturn(input)
+        `when`(validationProvider.getByKey(anyString())).thenReturn(validator)
+        `when`(validator?.invoke(Matchers.anyString())).thenReturn(true)
+        coconut.areFieldsValid(coconutView)
+
+        verify(validationProvider, times(3))
+                .getByKey(anyString())
+
+        verify(validationProvider).getByKey("a")
+        verify(validationProvider).getByKey("b")
+        verify(validationProvider).getByKey("c")
+    }
 
     @Test
     fun validation_Is_Performed_Correctly() {

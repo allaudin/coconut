@@ -1,11 +1,9 @@
 package com.mallaudin.coconut
 
 import android.view.ViewGroup
-import com.mallaudin.coconut.widget.CoconutView
 import com.mallaudin.coconut.validation.ValidationProvider
 import com.mallaudin.coconut.validation.ValidatorNotFound
-
-import java.util.*
+import com.mallaudin.coconut.widget.CoconutView
 
 class Coconut private constructor(val provider: ValidationProvider) {
 
@@ -54,24 +52,30 @@ class Coconut private constructor(val provider: ValidationProvider) {
             val input = inputView.value
             val errorMessage = inputView.errorMessage
 
-            val validatorKey = inputView.validatorKey
+            val validatorKeys = tokenizeKey(inputView.validatorKey)
                     ?: throw IllegalStateException("validatorKey is null for non-optional input view")
 
 
-            val validator = provider.getByKey(validatorKey)
-                    ?: throw ValidatorNotFound("No validator found with key: $validatorKey. " +
-                            "Have you misspelled validator key in layout?")
+            for (key in validatorKeys) {
+                val validator = provider.getByKey(key)
+                        ?: throw ValidatorNotFound("No validator found with key: $key. " +
+                                "Have you misspelled validator key in layout?")
 
 
-            if (!validator.invoke(input)) {
-                areFieldsValid = false
-                view.setErrorMessage(errorMessage ?: "")
+                if (!validator.invoke(input)) {
+                    areFieldsValid = false
+                    view.setErrorMessage(errorMessage ?: "")
+                }
             }
 
 
         }
         return areFieldsValid
     }  // areFieldsValid
+
+    private fun tokenizeKey(input: String?) = input?.trim()
+            ?.replace("||", "|")
+            ?.split("|")
 
     /**
      * Validates all [CoconutView]s in this parent
