@@ -66,15 +66,10 @@ class Coconut private constructor(val provider: ValidationProvider,
                                 "Have you misspelled validator key in layout?")
 
 
-                val result = validator.invoke(input)
+                val isValid = validator.invoke(input)
+                log(input, errorMessage, key, isValid)
 
-                log("\n\nValidating...\n" +
-                        "input = $input\n" +
-                        "errorMessage = $errorMessage\n" +
-                        "validator = $key\n" +
-                        "isValid = $result")
-
-                if (!result) {
+                if (!isValid) {
                     areFieldsValid = false
                     view.setErrorMessage(errorMessage ?: "")
                 }
@@ -84,6 +79,7 @@ class Coconut private constructor(val provider: ValidationProvider,
         }
         return areFieldsValid
     }  // areFieldsValid
+
 
     private fun tokenizeKey(input: String?) = input?.trim()
             ?.replace("||", "|")
@@ -120,9 +116,16 @@ class Coconut private constructor(val provider: ValidationProvider,
 
     } // getViews
 
-    private fun log(msg: String?) {
+    private fun log(input: String?, errorMessage: String?, key: String, isValid: Boolean) {
         if (debug) {
+            val msg = "\nValidating...\n" +
+                    "Input = $input\n" +
+                    "ErrorMessage = $errorMessage\n" +
+                    "Validator = $key\n" +
+                    "IsValid = $isValid\n"
             logger?.log(msg)
+
+
         }
     }
 }
