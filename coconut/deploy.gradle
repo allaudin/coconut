@@ -1,4 +1,3 @@
-
 version = "1.0.0"
 
 
@@ -31,37 +30,40 @@ tasks.uploadArchives.dependsOn 'assemble'
 
 bintray {
 
-    Properties properties = new Properties()
-    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    if (project.rootProject.file('local.properties').exists()) {
 
-    def username = properties.getProperty('bintray.user')
-    def apiKey = properties.getProperty('bintray.apikey')
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
-    user = "${username}"
-    key = "${apiKey}"
+        def username = properties.getProperty('bintray.user')
+        def apiKey = properties.getProperty('bintray.apikey')
 
-    publish = false
-    override = true
+        user = "${username}"
+        key = "${apiKey}"
 
-    pkg {
+        publish = false
+        override = true
 
-        filesSpec {
-            into "."
-            from 'build/release'
-        }
+        pkg {
 
-        repo = "android"
-        name = "${project.name}"
-        licenses = ['Apache-2.0']
+            filesSpec {
+                into "."
+                from 'build/release'
+            }
 
-        version {
-            name = "${project.version}"
-            released = new Date()
-            vcsTag = "${project.version}"
+            repo = "android"
+            name = "${project.name}"
+            licenses = ['Apache-2.0']
+
+            version {
+                name = "${project.version}"
+                released = new Date()
+                vcsTag = "${project.version}"
+            }
+
         }
 
     }
-
 }
 
 
