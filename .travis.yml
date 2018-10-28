@@ -1,5 +1,7 @@
 language: android
 
+sudo: false
+
 android:
   components:
     - tools
@@ -13,6 +15,10 @@ android:
       - 'android-sdk-preview-license-.+'
       - 'android-sdk-license-.+'
       - 'google-gdk-license-.+'
+
+env:
+  global:
+    - ADB_INSTALL_TIMEOUT=10
 
 before_script:
   - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
