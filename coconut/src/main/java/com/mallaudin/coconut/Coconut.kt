@@ -14,6 +14,7 @@ class Coconut private constructor(val provider: ValidationProvider,
 
         private var instance: Coconut? = null
 
+        @JvmOverloads
         fun init(provider: ValidationProvider, debug: Boolean = false, logger: Logger? = null) {
             if (instance == null) {
                 instance = Coconut(provider.init(), debug, logger)
