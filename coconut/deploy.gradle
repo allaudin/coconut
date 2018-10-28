@@ -1,0 +1,75 @@
+
+version = "1.0.0"
+
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    excludes = ['**/*.kt']
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+assemble.dependsOn 'sourcesJar'
+
+tasks.bintrayUpload.dependsOn 'uploadArchives'
+tasks.uploadArchives.dependsOn 'assemble'
+
+
+bintray {
+
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+    def username = properties.getProperty('bintray.user')
+    def apiKey = properties.getProperty('bintray.apikey')
+
+    user = "${username}"
+    key = "${apiKey}"
+
+    publish = false
+    override = false
+
+    pkg {
+
+        filesSpec {
+            into "."
+            from 'build/release'
+        }
+
+        repo = "android"
+        name = "${project.name}"
+        licenses = ['Apache-2.0']
+
+        version {
+            name = "${project.version}"
+            released = new Date()
+            vcsTag = "${project.version}"
+        }
+
+    }
+
+}
+
+
+uploadArchives {
+    repositories.mavenDeployer {
+        pom.groupId = "com.mallaudin"
+        pom.artifactId = project.name
+        pom.version = project.version
+        repository(url: "file://${buildDir}/release")
+    }
+}
