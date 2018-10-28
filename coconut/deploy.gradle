@@ -41,7 +41,7 @@ bintray {
     key = "${apiKey}"
 
     publish = false
-    override = false
+    override = true
 
     pkg {
 
