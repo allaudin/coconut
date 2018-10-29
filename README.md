@@ -10,13 +10,13 @@ Coconut Validator is **Input data validator** for Android.
 
 ## Why Coconut Validator?
 
-Coconut Validator allows developers to specify validation while declaring views in `XML` and validate
+Coconut Validator allows developers to specify validation while declaring views in `layout files` and validate
 all the views in layout in one single line. It **automagically** shows the errors messages and removes
 them on valid input.
 
 ## How it works?
 
-Coconut views allow you to attach a `validator key` when defining them in `XML`. Later a `Validator`
+Coconut views allow you to attach a `validator key` when defining them in `layout xml`. Later a `Validator`
 is requested against the provided key by `ValidationProvider` and data is validated against it.
 
 ## Usage
