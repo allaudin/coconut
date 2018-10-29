@@ -108,6 +108,9 @@ The result of `validateLayoutFields` is a **boolean** indicating either all fiel
 according to `xml` configs or not. In case of invalid fields, errors are displayed on respective 
 views.
 
+
+*For more detail understanding of the library, please have a look at* [*wiki*](https://github.com/allaudin/coconut/wiki).
+
 License
 -------
 
