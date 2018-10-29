@@ -1,16 +1,30 @@
+sudo: false
 language: android
 
-android:
-  components:
-    - tools
-    - platform-tools
-    - extra-android-m2repository
-    - extra-google-android-support
-    - build-tools-28.0.3
-    - android-28
+jdk:
+  - oraclejdk8
 
 before_install:
   - chmod +x gradlew
+  - yes | sdkmanager tools
+  - yes | sdkmanager "system-images;android-18;default;armeabi-v7a"
+  - echo no | avdmanager create avd --force -n test -k "system-images;android-18;default;armeabi-v7a"
+  - $ANDROID_HOME/emulator/emulator -avd test -no-audio -no-window &
 
-install:
-  - ./gradlew clean :coconut:testDebug
+before_script:
+  - android-wait-for-emulator
+  - adb shell input keyevent 82
+
+script:
+  - ./gradlew build connectedCheck
+  - ./gradlew clean :coconut:test
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
