@@ -118,7 +118,13 @@ views.
 implementation 'com.mallaudin:coconut:latest-version@aar'
 ```
 
-*For more detail understanding of the library, please have a look at* [*wiki*](https://github.com/allaudin/coconut/wiki).
+## Changelog
+
+Changelog can be found [here](https://github.com/allaudin/coconut/blob/master/CHANGELOG.md)
+
+
+
+> For more detail understanding of the library, please have a look at* [*wiki*](https://github.com/allaudin/coconut/wiki).
 
 License
 -------
