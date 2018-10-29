@@ -108,6 +108,11 @@ The result of `validateLayoutFields` is a **boolean** indicating either all fiel
 according to `xml` configs or not. In case of invalid fields, errors are displayed on respective 
 views.
 
+## Download [ ![Download](https://api.bintray.com/packages/mallaudin/android/coconut/images/download.svg) ](https://bintray.com/mallaudin/android/coconut/_latestVersion)
+
+```groovy
+implementation 'com.mallaudin:coconut:latest-version@aar'
+```
 
 *For more detail understanding of the library, please have a look at* [*wiki*](https://github.com/allaudin/coconut/wiki).
 
