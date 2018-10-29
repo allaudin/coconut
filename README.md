@@ -1,12 +1,12 @@
 
-[![Build Status](https://travis-ci.org/allaudin/coconut.svg?branch=master)](https://travis-ci.org/allaudin/coconut)
+[![Build Status](https://travis-ci.org/allaudin/coconut.svg?branch=master)](https://travis-ci.org/allaudin/coconut) [ ![Download](https://api.bintray.com/packages/mallaudin/android/coconut/images/download.svg) ](https://bintray.com/mallaudin/android/coconut/_latestVersion)
 
 # Coconut Input Validator for Android
 
 Coconut Validator is **Input data validator** for Android.
 
 
-<img src="https://github.com/allaudin/coconut-input-validator/blob/master/coconut.gif" width="350" height="600" /> [ ![Download](https://api.bintray.com/packages/mallaudin/android/coconut/images/download.svg) ](https://bintray.com/mallaudin/android/coconut/_latestVersion)
+<img src="https://github.com/allaudin/coconut-input-validator/blob/master/coconut.gif" width="350" height="600" /> 
 
 ## Why Coconut Validator?
 
