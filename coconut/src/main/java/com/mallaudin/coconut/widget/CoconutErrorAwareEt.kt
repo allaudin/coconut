@@ -5,7 +5,9 @@ import android.util.AttributeSet
 import android.widget.EditText
 import android.widget.TextView
 
-
+/**
+ * @see BaseErrorAwareEt
+ */
 class CoconutErrorAwareEt : BaseErrorAwareEt {
 
     constructor(ctx: Context) : super(ctx)

@@ -8,8 +8,7 @@ import io.com.mallaudin.coconut.R
 
 
 /**
- * An error aware edit text which contains validation regex for validating it's
- * input data and error message to be displayed when an incorrect data is detected
+ * An error aware edit text which displays error message to be displayed when an incorrect data is detected
  * via [com.mallaudin.coconut.Coconut]
  *
  * @author Muhammad Allaudin

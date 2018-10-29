@@ -9,7 +9,7 @@ import io.com.mallaudin.coconut.R
 
 /**
  * A specialized [Input] which contains information about
- * it's validation regex, error message and either field is optional or not.
+ * it's validator key, error message and either field is optional or not.
  *
  *
  * This must be used as a  child layout in [CoconutTextInputLayout]

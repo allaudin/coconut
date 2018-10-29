@@ -3,7 +3,7 @@ package com.mallaudin.coconut.widget
 
 /**
  * An input field which collects data from the user and
- * contains regex and error messages for validating the input.
+ * contains validator key and error messages for validating the input.
  *
  *
  * It must be wrapper in [CoconutView] in order to work with
@@ -31,9 +31,9 @@ interface Input {
     var errorMessage: String?
 
     /**
-     * Key for delegate validator
+     * Validator key
      *
-     * @return key for delegate validator if specified in xml
+     * @return key for a validator provided by [com.mallaudin.coconut.validation.ValidationProvider]
      */
     val validatorKey: String?
 

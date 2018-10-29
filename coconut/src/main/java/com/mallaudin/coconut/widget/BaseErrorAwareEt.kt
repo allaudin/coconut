@@ -14,7 +14,12 @@ import android.widget.TextView
 import io.com.mallaudin.coconut.R
 
 
-
+/**
+ * An error aware edit text which displays error below edit text.
+ *
+ * This class should be extended for creating custom edit text and
+ * error text view
+ */
 abstract class BaseErrorAwareEt : LinearLayout, Input, CoconutView {
 
     override var validatorKey: String? = null
