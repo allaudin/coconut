@@ -90,7 +90,9 @@ Each coconut view provides at least the following 3 attributes
 
 **`app:cnt_error_message`** for specifying the error message displayed on invalid input
 
-**`app:cnt_validator`** for specifying the validator key. These are the same keys you provide in validation provider
+**`app:cnt_validator`** for specifying the validator key. These are the same keys you provide in 
+validation provider. **Validator keys can be piped to apply multiple validators on single input e.g.
+`non_empty|length_7`**
 
 **`app:cnt_optional`** for making the validation optional
 
