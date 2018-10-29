@@ -124,7 +124,7 @@ Changelog can be found [here](https://github.com/allaudin/coconut/blob/master/CH
 
 
 
-> For more detail understanding of the library, please have a look at* [*wiki*](https://github.com/allaudin/coconut/wiki).
+>*For more detail understanding of the library, please have a look at* [*wiki*](https://github.com/allaudin/coconut/wiki).
 
 License
 -------
