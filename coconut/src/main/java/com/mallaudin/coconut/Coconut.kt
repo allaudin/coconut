@@ -36,7 +36,7 @@ class Coconut private constructor(val provider: ValidationProvider,
     }
 
     /**
-     * Validates [CoconutView]s based on the given regex and shows
+     * Validates [CoconutView]s based on the given validator key and shows
      * respective error messages for invalid inputs.
      *
      * @param views views to be validated
